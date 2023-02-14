@@ -10,7 +10,7 @@ class Accessory extends Model
 {
     use HasFactory;
 
-    protected $gurads = [];
+    protected $guards = [];
 
     public function costume()
     {

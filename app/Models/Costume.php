@@ -13,7 +13,16 @@ class Costume extends Model
 {
     use HasFactory;
 
-    protected $gurads = [];
+    protected $guards = [];
+
+    protected $fillable = [
+        "name",
+        "category_id",
+        "sizes",
+        "ld",
+        "lp",
+        "price"
+    ];
 
     public function accsessories()
     {
