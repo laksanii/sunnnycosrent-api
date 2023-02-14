@@ -8,10 +8,11 @@ use App\Models\Accessory;
 use App\Models\CostumePict;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Costume extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $guards = [];
 

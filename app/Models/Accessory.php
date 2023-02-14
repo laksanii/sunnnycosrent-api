@@ -5,10 +5,11 @@ namespace App\Models;
 use App\Models\Costume;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Accessory extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $guards = [];
 
