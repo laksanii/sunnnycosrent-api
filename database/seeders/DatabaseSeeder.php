@@ -24,11 +24,11 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $categories = [
-            "Genshin Impact",
-            "Love Live",
-            "VTuber",
-            "Anime",
-            "Game"
+            "genshin impact",
+            "love live",
+            "vtuber",
+            "anime",
+            "game"
         ];
 
         foreach ($categories as $category) {
