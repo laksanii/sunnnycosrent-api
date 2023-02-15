@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\CostumeController;
+use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\AccessoryController;
 
 /*
@@ -29,3 +30,8 @@ Route::get('/accessory', [AccessoryController::class, 'fetch']);
 Route::post('/accessory', [AccessoryController::class, 'store']);
 Route::put('/accessory/{id}', [AccessoryController::class, 'update']);
 Route::delete('/accessory/{id}', [AccessoryController::class, 'delete']);
+
+Route::get('/category', [CategoryController::class, 'fetch']);
+Route::post('/category', [CategoryController::class, 'store']);
+Route::put('/category/{id}', [CategoryController::class, 'update']);
+Route::delete('/category/{id}', [CategoryController::class, 'delete']);

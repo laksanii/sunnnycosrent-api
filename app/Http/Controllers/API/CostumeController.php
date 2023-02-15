@@ -20,7 +20,7 @@ class CostumeController extends Controller
         $category = $request->input('category');
         $limit = $request->input('limit', 10);
 
-        $costumeQuery = Costume::with(['accessories']);
+        $costumeQuery = Costume::with(['accessories', 'category']);
 
         if ($category) {
             $costumeQuery = Costume::whereHas('category', function ($query) use ($category) {

@@ -12,6 +12,10 @@ class Category extends Model
 
     protected $guards = [];
 
+    protected $fillable = [
+        'name'
+    ];
+
     public function costumes()
     {
         return $this->hasMany(Costume::class);
