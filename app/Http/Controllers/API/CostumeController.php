@@ -6,6 +6,8 @@ use App\Models\Costume;
 use Illuminate\Http\Request;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCostumeRequest;
+use Exception;
 
 class CostumeController extends Controller
 {
@@ -55,7 +57,30 @@ class CostumeController extends Controller
             'Companies found'
         );
     }
+
     // STORE
+    public function store(StoreCostumeRequest $request)
+    {
+        try {
+            //code...
+            $costume = Costume::create([
+                'name' => $request->name,
+                'category_id' => $request->category_id,
+                'sizes' => $request->sizes,
+                'ld' => $request->ld,
+                'lp' => $request->lp,
+                'price' => $request->price,
+            ]);
+
+            if (!$costume) {
+                throw new Exception('Costume stored failed');
+            }
+
+            return ResponseFormatter::success($costume, 'Costume stored successfully');
+        } catch (Exception $e) {
+            return ResponseFormatter::error($e->getMessage(), 500);
+        }
+    }
 
     // UPDATE
 
