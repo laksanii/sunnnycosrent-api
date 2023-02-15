@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/costume', [CostumeController::class, 'fetch']);
 Route::post('/costume', [CostumeController::class, 'store']);
+Route::put('/costume/{id}', [CostumeController::class, 'update']);

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
+use Exception;
 use App\Models\Costume;
 use Illuminate\Http\Request;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCostumeRequest;
-use Exception;
+use App\Http\Requests\UpdateCostumeRequest;
 
 class CostumeController extends Controller
 {
@@ -83,6 +84,31 @@ class CostumeController extends Controller
     }
 
     // UPDATE
+    public function update(UpdateCostumeRequest $request, $id)
+    {
+        try {
+            //code...
+            $costume = Costume::find($id);
+
+            if (!$costume) {
+                throw new Exception('Costume not found');
+            }
+
+            // Update costume
+            $costume->update([
+                'name' => $request->name,
+                'category_id' => $request->category_id,
+                'sizes' => $request->sizes,
+                'ld' => $request->ld,
+                'lp' => $request->lp,
+                'price' => $request->price,
+            ]);
+
+            return ResponseFormatter::success($costume, 'Costume updated successfully');
+        } catch (Exception $e) {
+            return ResponseFormatter::error($e->getMessage(), 500);
+        }
+    }
 
     // DELETE
 }
