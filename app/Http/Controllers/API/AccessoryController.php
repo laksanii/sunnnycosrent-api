@@ -14,15 +14,27 @@ class AccessoryController extends Controller
 {
     public function fetch(Request $request)
     {
+        $id = $request->input('id');
         $costume_id = $request->input('costume_id');
         $limit = $request->input('limit', 10);
 
-        $accessoryQuery = Accessory::query();
+        $accessoryQuery = Accessory::with(['costume']);
 
         $accessory = $accessoryQuery;
 
         if ($costume_id) {
             $accessory = $accessoryQuery->where('costume_id', $costume_id);
+        }
+
+        if ($id) {
+            $accessory = $accessoryQuery->find($id);
+            if ($accessory) {
+                return ResponseFormatter::success($accessory, 'Accessory found');
+            }
+            return ResponseFormatter::success(
+                null,
+                'Accessory not found'
+            );
         }
 
         if ($accessory->count()) {
