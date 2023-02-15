@@ -25,7 +25,7 @@ class Costume extends Model
         "price"
     ];
 
-    public function accsessories()
+    public function accessories()
     {
         return $this->hasMany(Accessory::class);
     }

@@ -13,6 +13,12 @@ class Accessory extends Model
 
     protected $guards = [];
 
+    protected $fillable = [
+        'name',
+        'price',
+        'status',
+        'costume_id'
+    ];
     public function costume()
     {
         return $this->belongsTo(Costume::class);

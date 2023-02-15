@@ -111,4 +111,21 @@ class CostumeController extends Controller
     }
 
     // DELETE
+    public function delete($id)
+    {
+        try {
+            //code...
+            $costume = Costume::find($id);
+
+            if (!$costume) {
+                throw new Exception('Costume not found');
+            }
+
+            $costume->delete();
+
+            return ResponseFormatter::success('Costume deleted successfully');
+        } catch (Exception $e) {
+            return ResponseFormatter::error($e->getMessage(), 500);
+        }
+    }
 }

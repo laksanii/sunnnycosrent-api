@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("name", 255);
             $table->decimal("price", 10, 0);
             $table->bigInteger("costume_id")->unsigned();
+            $table->string("status")->default('ready');
             $table->softDeletes();
             $table->timestamps();
         });

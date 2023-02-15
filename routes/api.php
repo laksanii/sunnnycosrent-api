@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\API\CostumeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\CostumeController;
+use App\Http\Controllers\API\AccessoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/costume', [CostumeController::class, 'fetch']);
 Route::post('/costume', [CostumeController::class, 'store']);
 Route::put('/costume/{id}', [CostumeController::class, 'update']);
+Route::delete('/costume/{id}', [CostumeController::class, 'delete']);
+
+Route::get('/accessory', [AccessoryController::class, 'fetch']);
+Route::post('/accessory', [AccessoryController::class, 'store']);
+Route::put('/accessory/{id}', [AccessoryController::class, 'update']);
+Route::delete('/accessory/{id}', [AccessoryController::class, 'delete']);
