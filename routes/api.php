@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\CostumeController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\AccessoryController;
+use App\Http\Controllers\API\CostumePictController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,5 @@ Route::get('/category', [CategoryController::class, 'fetch']);
 Route::post('/category', [CategoryController::class, 'store']);
 Route::put('/category/{id}', [CategoryController::class, 'update']);
 Route::delete('/category/{id}', [CategoryController::class, 'delete']);
+
+Route::post('/costume-pict', [CostumePictController::class, 'store']);

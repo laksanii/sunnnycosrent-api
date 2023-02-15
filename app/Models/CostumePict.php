@@ -12,6 +12,11 @@ class CostumePict extends Model
 
     protected $guards = [];
 
+    protected $fillable = [
+        'path',
+        'costume_id'
+    ];
+
     public function costume()
     {
         return $this->belongsTo(Costume::class);
