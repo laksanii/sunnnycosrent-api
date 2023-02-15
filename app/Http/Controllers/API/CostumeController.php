@@ -55,7 +55,7 @@ class CostumeController extends Controller
 
         return ResponseFormatter::success(
             $costume->paginate($limit),
-            'Companies found'
+            'Order found'
         );
     }
 

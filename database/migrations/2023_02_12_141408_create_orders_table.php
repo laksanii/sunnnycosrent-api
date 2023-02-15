@@ -32,7 +32,7 @@ return new class extends Migration
             $table->bigInteger("costume_id")->unsigned();
             $table->date("rent_date");
             $table->date("ship_date");
-            $table->string("payment_status", 255);
+            $table->string("payment_status", 255)->default('belum lunas');
             $table->decimal("DP", 10, 0)->default(0);
             $table->decimal("total_price", 10, 0)->default(0);
             $table->decimal("shipping", 10, 0)->default(0);
